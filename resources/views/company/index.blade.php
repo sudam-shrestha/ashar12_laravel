@@ -18,6 +18,7 @@
                             <th class="border p-1">Phone</th>
                             <th class="border p-1">Address</th>
                             <th class="border p-1">Logo</th>
+                            <th class="border p-1">Action</th>
                         </tr>
                     </thead>
 
@@ -30,14 +31,25 @@
                                 <td class="border p-1">{{ $company->phone }}</td>
                                 <td class="border p-1">{{ $company->address }}</td>
                                 <td class="border p-1">
-                                    <img src="{{asset($company->logo)}}" class="h-[100px]" alt="">
+                                    <img src="{{ asset($company->logo) }}" class="h-[100px]" alt="">
+                                </td>
+                                <td class="border p-1">
+                                    <a href="{{ route('company.edit', $company->id) }}" class="text-[blue] underline">
+                                        Edit
+                                    </a>
+
+                                    <form action="/company/delete/{{ $company->id }}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="text-[red]">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            
+
             {{-- <img src="{{asset('images/library.avif')}}" alt=""> --}}
         </div>
     </section>
