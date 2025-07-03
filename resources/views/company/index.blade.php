@@ -23,9 +23,9 @@
                     </thead>
 
                     <tbody>
-                        @foreach ($companies as $company)
+                        @foreach ($companies as $index=>$company)
                             <tr>
-                                <td class="border p-1">{{ $company->id }}</td>
+                                <td class="border p-1">{{ ++$index }}</td>
                                 <td class="border p-1">{{ $company->name }}</td>
                                 <td class="border p-1">{{ $company->email }}</td>
                                 <td class="border p-1">{{ $company->phone }}</td>

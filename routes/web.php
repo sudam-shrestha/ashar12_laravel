@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PageController;
 use App\Models\Company;
 use Illuminate\Http\Request;
@@ -59,3 +60,5 @@ Route::delete("/company/delete/{id}", function ($id) {
 // R->read get
 // U->update put/patch
 // D->delete delete
+
+Route::resource("course", CourseController::class)->names("course");
