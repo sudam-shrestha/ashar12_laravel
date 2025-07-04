@@ -85,4 +85,11 @@ class CourseController extends Controller
     {
         // delete
     }
+
+
+    public function admissions($id)
+    {
+        $course = Course::find($id);
+        return view("course.admission", compact('course'));
+    }
 }

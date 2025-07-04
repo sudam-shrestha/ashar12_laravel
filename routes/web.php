@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdmissionController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\PageController;
@@ -62,3 +63,6 @@ Route::delete("/company/delete/{id}", function ($id) {
 // D->delete delete
 
 Route::resource("course", CourseController::class)->names("course");
+Route::get("admissions/{id}", [CourseController::class, 'admissions'])->name("admissions");
+
+Route::resource("admission", AdmissionController::class)->names("admission");
